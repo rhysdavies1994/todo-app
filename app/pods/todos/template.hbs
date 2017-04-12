@@ -1,5 +1,11 @@
 <h1>Todos</h1>
 
+{{! New Todo }}
+<form {{action "createTodo" on="submit"}}>
+  {{input type="text" value=newTodoDescription placeholder="What's on your mind?"}}
+  <button type="submit">Add</button>
+</form>
+
 {{! Todos List}}
 <ul>
   {{#each model as |todo|}}
@@ -17,11 +23,6 @@
   {{/each}}
 </ul>
 
-{{! New Todo }}
-<form {{action "createTodo" on="submit"}}>
-  {{input type="text" value=newTodoDescription placeholder="What's on your mind?"}}
-  <button type="submit">Add</button>
-</form>
 
 {{outlet}}
 

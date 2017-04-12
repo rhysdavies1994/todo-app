@@ -1,0 +1,27 @@
+<h1>Todos</h1>
+
+{{! Todos List}}
+<ul>
+  {{#each model as |todo|}}
+    <li>
+      <span {{action "completeTodo" todo}}>
+        {{todo.description}}
+      </span>
+
+      {{#if todo.isCompleted}}
+        <span style="color: red;">DONE!</span>
+      {{/if}}
+
+      <button type="button" {{action "deleteTodo" todo}}>Delete</button>
+    </li>
+  {{/each}}
+</ul>
+
+{{! New Todo }}
+<form {{action "createTodo" on="submit"}}>
+  {{input type="text" value=newTodoDescription placeholder="What's on your mind?"}}
+  <button type="submit">Add</button>
+</form>
+
+{{outlet}}
+
